@@ -16,6 +16,7 @@ export function Header() {
     { href: "#services", label: t.nav.services },
     { href: "#doctors", label: t.nav.doctors },
     { href: "#contact", label: t.nav.contact },
+    { href: "/feedback", label: lang === "hi" ? "फीडबैक" : "Feedback" },
   ];
 
   return (
