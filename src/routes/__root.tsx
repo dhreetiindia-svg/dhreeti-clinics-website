@@ -10,8 +10,6 @@ import {
 
 import appCss from "../styles.css?url";
 
-const GA_ID = "G-3BKN5MCJS5";
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -94,18 +92,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
-      },
-    ],
-    scripts: [
-      {
-        src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`,
-        async: true,
-      },
-      {
-        children: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_ID}');`,
       },
     ],
   }),
