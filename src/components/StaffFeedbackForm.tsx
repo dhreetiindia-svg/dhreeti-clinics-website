@@ -22,8 +22,8 @@ const DEPARTMENTS: Record<string, StaffMember[]> = {
   ],
   "Registration & Reception": [{ name: "Dip Narayan Mishra" }],
   "Vitals & Triage": [{ name: "Puja Kumari" }],
-  "Patient Navigation": [{ name: "Dr. Sanjeev Ji" }, { name: "Roshan" }],
-  "Phlebotomy & Day Care": [{ name: "Munna Kumar" }, { name: "Kranti Kumari" }],
+  "Patient Navigation": [{ name: "Sanjit" }, { name: "Raushan Pandey" }],
+  "Phlebotomy & Day Care": [{ name: "Sanjog Kumar (Munnaji)" }, { name: "Kranti Kumari" }],
   Pharmacy: [
     { name: "Golu Kumar", role: "Pharmacist - dispensing, inventory, dosage guidance" },
   ],
