@@ -10,6 +10,8 @@ import {
 
 import appCss from "../styles.css?url";
 
+const GA_ID = "G-3BKN5MCJS5";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -72,19 +74,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Dhreeti Clinic - Trusted & Affordable Healthcare in Ara, Bhojpur" },
+      {
+        name: "description",
+        content:
+          "Dhreeti Clinic, Ara, Bhojpur, Bihar: consulting doctors, pathology, day care and 24/7 pharmacy. Trusted & affordable healthcare for you.",
+      },
+      { name: "author", content: "Dhreeti Clinic" },
+      { property: "og:title", content: "Dhreeti Clinic - Trusted & Affordable Healthcare" },
+      {
+        property: "og:description",
+        content:
+          "Consulting doctors, pathology, day care and 24/7 pharmacy in Ara, Bhojpur, Bihar.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`,
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`,
       },
     ],
   }),
