@@ -18,7 +18,7 @@ import ot from "@/assets/ot.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dhreeti Clinic — Trusted Healthcare in Ara, Bihar" },
+      { title: "Dhreeti (Dhriti) Clinic — Trusted Healthcare in Ara, Bihar" },
       { name: "description", content: "Family medicine, OB-GYN, ultrasound, 24/7 pharmacy & emergency referrals at Dhreeti Clinic, Maulabag, Ara." },
       { property: "og:title", content: "Dhreeti Clinic — Ara, Bihar" },
       { property: "og:description", content: "Reliable & affordable healthcare. Book appointments, lab tests, and order medicines online." },
