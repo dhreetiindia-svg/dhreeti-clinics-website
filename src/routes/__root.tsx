@@ -1,3 +1,14 @@
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <SiteLayout>
+        <Outlet />
+      </SiteLayout>
+    </QueryClientProvider>
+  );
+}
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
