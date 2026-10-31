@@ -1,11 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Phone, MapPin, Stethoscope, Baby, Activity, Pill, Ambulance,
-  Calendar, FlaskConical, ShoppingBag, Facebook, Instagram, Youtube, Mail, Clock, ShieldCheck, Heart,
+  Calendar, FlaskConical, ShoppingBag, Clock, ShieldCheck, Heart,
 } from "lucide-react";
-import { LangProvider, useLang } from "@/lib/lang-context";
-import { Header } from "@/components/site/Header";
-import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { useLang } from "@/lib/lang-context";
 import logo from "@/assets/logo.png";
 import doctors from "@/assets/doctors.jpeg";
 import baby from "@/assets/baby.jpeg";
@@ -24,20 +22,14 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Reliable & affordable healthcare. Book appointments, lab tests, and order medicines online." },
     ],
   }),
-  component: () => (
-    <LangProvider>
-      <Page />
-    </LangProvider>
-  ),
+  component: Page,
 });
 
 function Page() {
   const { t } = useLang();
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-
+    <>
       {/* HERO */}
       <section id="home" className="relative overflow-hidden bg-gradient-soft">
         <div className="container mx-auto px-4 py-12 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
@@ -189,43 +181,7 @@ function Page() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="bg-foreground text-background py-12">
-        <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <img src={logo} alt="" className="h-12 w-12 bg-white rounded-lg p-1" />
-              <div>
-                <div className="font-bold text-lg">Dhreeti Clinic</div>
-                <div className="text-xs opacity-70">{t.tagline}</div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="font-semibold mb-3">{t.footer.follow}</div>
-            <div className="flex items-center gap-3">
-              <SocialLink href="https://www.facebook.com/share/19TuNETpAt/" label="Facebook"><Facebook className="h-5 w-5" /></SocialLink>
-              <SocialLink href="https://www.instagram.com/dhreeti_clinic?igsh=MXRlYjM2dzhhaHBzYw==" label="Instagram"><Instagram className="h-5 w-5" /></SocialLink>
-              <SocialLink href="https://youtube.com/@dhreeticlinic?si=0kteaFbMV-U1YtQW" label="YouTube"><Youtube className="h-5 w-5" /></SocialLink>
-              <SocialLink href="https://maps.app.goo.gl/PWMyi82X5niphyHEA?g_st=ac" label="Maps"><MapPin className="h-5 w-5" /></SocialLink>
-              <SocialLink href="mailto:contact@dhreeticlinic.in" label="Email"><Mail className="h-5 w-5" /></SocialLink>
-            </div>
-          </div>
-          <div className="text-sm opacity-80">
-            <div className="font-semibold mb-3 opacity-100">Contact</div>
-            <p>{t.contact.address}</p>
-            <a href="tel:+919901515300" className="block mt-2">+91 99015 15300</a>
-            <a href="tel:+919279797955" className="block">+91 92797 97955</a>
-          </div>
-        </div>
-        <div className="container mx-auto px-4 mt-8 pt-6 border-t border-white/10 text-center text-sm opacity-70">
-          © {new Date().getFullYear()} Dhreeti Clinic. {t.footer.rights}.
-        </div>
-      </footer>
-
-      <WhatsAppFab />
-    </div>
+    </>
   );
 }
 
@@ -270,13 +226,5 @@ function DoctorCard({ name, specialty, desc }: { name: string; specialty: string
         <p className="text-sm text-muted-foreground mt-2">{desc}</p>
       </div>
     </div>
-  );
-}
-
-function SocialLink({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="h-11 w-11 inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 transition-colors">
-      {children}
-    </a>
   );
 }
